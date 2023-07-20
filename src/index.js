@@ -3,66 +3,19 @@
 리액트 자습서 사이트 제공 index.js
 */
 
-import React from 'react';
+// import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square">
-        {/* TODO */}
-      </button>
-    );
-  }
-}
+/*
+jsconfig.json 에 baseUrl을 적용함으로써 절대경로 처리
+기존 스타일 : import './assets/css/index.css';
+*/
+import 'assets/css/index.css';
 
-class Board extends React.Component {
-  renderSquare(i) {
-    return <Square />;
-  }
-
-  render() {
-    const status = 'Next player: X';
-
-    return (
-      <div>
-        <div className="status">{status}</div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
-}
-
-class Game extends React.Component {
-  render() {
-    return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
-      </div>
-    );
-  }
-}
+/*
+컴포넌트당 js 파일 하나로 분리
+*/
+import { Game }  from 'components/tic-tac-toe/game-component';
 
 // ========================================
 
